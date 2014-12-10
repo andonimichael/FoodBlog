@@ -57,7 +57,7 @@ function initializeRestaurants(){
     RESTAURANTS.push(GGoat);
     var Seasons = new restaurant(41.891607, -87.625584, "Seasons 52", "Spring 2014");
     RESTAURANTS.push(Seasons);
-    var Eataly = new restaurant(41.892000, -87.626266, "Eataly", "ALL DA TIMES");
+    var Eataly = new restaurant(41.892000, -87.626266, "Eataly", "ALL THE TIME!");
     RESTAURANTS.push(Eataly);
     var Laredo = new restaurant(41.891119, -87.628264, "Cantina Laredo", "Winter 2013; Summer 2014");
     RESTAURANTS.push(Laredo);
@@ -65,8 +65,28 @@ function initializeRestaurants(){
     RESTAURANTS.push(Sunda);
     var Atwood = new restaurant(41.883118, -87.628183, "Atwood", "Winter 2014");
     RESTAURANTS.push(Atwood);
-    var Gage = new restaurant(41.881478, -87.624912, "The Gage", "ALL DA TIMES");
+    var Gage = new restaurant(41.881478, -87.624912, "The Gage", "ALL THE TIME!");
     RESTAURANTS.push(Gage);
+    var Frontera = new restaurant(41.890499, -87.630970, "Frontera Grill","Spring 2014");
+    RESTAURANTS.push(Frontera);
+    var Mercadito = new restaurant(41.889210, -87.631583, "Mercadito", "Spring 2013");
+    RESTAURANTS.push(Mercadito);
+    var Fogo = new restaurant(41.894170, -87.632407, "Fogo de Chao", "Fall 2012");
+    RESTAURANTS.push(Fogo);
+    var Italian = new restaurant(41.880543, -87.630190, "Italian Village", "24 October 2012");
+    RESTAURANTS.push(Italian);
+    var Magnolias = new restaurant(41.883499, -87.628382, "Magnolia Bakery", "ALL THE TIME!");
+    RESTAURANTS.push(Magnolias);
+    var Malnati = new restaurant(41.871551, -87.627361, "Lou Malnati's Pizzeria", "26 September 2012; Spring 2013");
+    RESTAURANTS.push(Malnati);
+    var Yolk = new restaurant(41.868866, -87.624558, "Yolk!", "Spring 2013");
+    RESTAURANTS.push(Yolk);
+    var PorkChop = new restaurant(41.884005, -87.651499, "Prokchop", "Winter 2013");
+    RESTAURANTS.push(PorkChop);
+    var Cheesies = new restaurant(41.940029, -87.653843, "Cheesie's", "EVERY WEEKEND!");
+    RESTAURANTS.push(Cheesies);
+    var Goose = new restaurant(41.946493, -87.655688, "Goose Island Brewing Co", "Summer 2014");
+    RESTAURANTS.push(Goose);
 }
 
 function setMarker(place){
