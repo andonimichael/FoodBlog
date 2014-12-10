@@ -4,36 +4,35 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Andoni M. Garcia | Food Blog</title>
         <meta name="description" content="This is my little map blog of where I've eaten here in Chi!">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="Andoni, Garcia, Andoni Garcia, Andoni M. Garcia, andoni, garcia, andoni garcia, andoni m. garcia, andoni michael,
               food blog, food, michelin, restaurant, foodie, blog, andoni blog, andoni food, andoni garcia, Andoni Garcia, Chicago, food, chicago, michael,
               andoni michael, Andoni Michael, Michael">
         <meta name="author" content="Andoni M. Garcia">
 
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <link href='http://fonts.googleapis.com/css?family=Lobster|Oswald|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
-        <script src="js/maps.js"></script>
-        <script src="js/nav.js"></script>
     </head>
     <body>
         <nav class="myNav">
             <ul class="tabList">
-                <li class="tabs activeTab" id="about"><a>About</a></li>
+                <li class="tabs" id="about"><a>About</a></li>
                 <li class="tabs" id="contact"><a>Contact</a></li>
             </ul>
-            <div class="content"></div>
+            <div class="content contentHidden"></div>
         </nav>
         <div class="googleMap" id="googleMap">
         </div>
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="js/maps.js"></script>
+        <script src="js/nav.js"></script>
     </body>
 </html>

@@ -1,7 +1,5 @@
 // Copyright: Andoni M. Garcia. Food Blog. 2014
 
-
-
 function renderAbout(){
     $(".activeTab").removeClass("activeTab");
     $("#about").addClass("activeTab");
@@ -20,7 +18,8 @@ function renderAbout(){
                     $("<p></p>").append(about1),
                     $("<p></p>").append(about2),
                     $("<p></p>").append(about3),
-                    $("<p></p>").append(about4));
+                    $("<p></p>").append(about4),
+                    $("<br />"));
 }
 
 function renderContact(){
@@ -33,6 +32,9 @@ function renderContact(){
     
     var img = $("<img />").attr({"src":"img/me.jpg","alt":"A head-shot of Andoni M. Garcia"})
             .css({"margin-left":"auto","margin-right":"auto","border-radius":"50%","border":"1px black solid","width":"65%","position":"relative"});
+    if($(window).width() < 820){
+        img.css("width","40%");
+    }
     var anch1 = $("<a></a>").text("Andoni M. Garcia")
             .attr({"href":"http://andonigarcia.com","target":"_blank"})
             .css({"font-size":"24px"});
@@ -43,18 +45,87 @@ function renderContact(){
     $(".content").empty()
             .append(par, img,
                     $("<p></p>").append(anch1),
-                    $("<p></p>").append(anch2))
+                    $("<p></p>").append(anch2),
+                    $("<br />"))
             .css({"text-align":"center"});
 }
 
 $(document).ready(function(){
-    renderAbout();
+    var currSmall = true;
+    
+    if($(window).width() >= 820){
+        $(".content").removeClass("contentHidden")
+            .addClass("contentShown");
+        renderAbout();
+        currSmall = false;
+    }
+    
+    $(window).on('resize', function(){
+        var win = $(window).width();
+        if(win >= 820){
+            currSmall = false;
+            $(".myNav").height("100%");
+            $(".googleMap").height("100%");
+            $(".content").removeClass("contentHidden")
+                    .height("90%");
+            $(".tabList").height("auto");
+            
+            if ($("#about").hasClass("activeTab")) {
+                $("#about").click();
+            } else if ($("#contact").hasClass("activeTab")) {
+                $("#contact").click();
+            } else {
+                $("#about").click();
+            }
+        }
+        
+        if(win < 820){
+            if(currSmall === false){
+                $(".activeTab").removeClass(".activeTab");
+                $(".googleMap").click();
+            }
+            currSmall = true;
+        }
+    });
     
     $("#about").click(function(){
-        renderAbout();
+        if($(window).width() < 820){
+            $(".myNav").height("85%");
+            $(".googleMap").height("15%")
+                    .css("border-top","1px black solid");
+            
+            $(".tabList").height("10%");
+            $(".content").removeClass("contentHidden")
+                    .addClass("contentShown");
+            renderAbout();
+        } else {
+            renderAbout();
+        }
     });
     $("#contact").click(function(){
-        renderContact();
+        if($(window).width() < 820){
+            $(".myNav").height("85%");
+            $(".googleMap").height("15%")
+                    .css("border-top","1px black solid");
+            
+            $(".tabList").height("10%");
+            $(".content").removeClass("contentHidden")
+                    .addClass("contentShown");
+            renderContact();
+        } else {
+            renderContact();
+        }
     });
-    
+    $(".googleMap").click(function(){
+       if($(window).width() < 820){
+            $(".myNav").height("10%");
+            $(".googleMap").height("90%")
+                    .css("border-top","none");
+            
+            $(".tabList").height("100%");
+            $(".content").removeClass("contentShow")
+                    .addClass("contentHidden");
+            $(".activeTab").removeClass("activeTab");
+        }
+    });
 });
