@@ -4,6 +4,9 @@ var RESTAURANTS = [];
 var MARKERS = [];
 var INFOS = [];
 var MAP;
+var CENTER = new google.maps.LatLng(41.888904, -87.624364);
+var INFO_OPEN;
+var MARKER_OPEN;
 
 function restaurant(Lat, Lng, Name, Date){
     this.lat = Lat;
@@ -14,7 +17,7 @@ function restaurant(Lat, Lng, Name, Date){
 
 function initializeMap(){
     var mapOptions = {
-        center: new google.maps.LatLng(41.888904, -87.624364),
+        center: CENTER,
         zoom: 13,
         
         disableDefaultUI: true,
@@ -38,6 +41,9 @@ function initializeMap(){
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     MAP = new google.maps.Map($("#googleMap")[0], mapOptions);
+    google.maps.event.addDomListener(MAP, 'idle', function(){
+        CENTER = MAP.getCenter();
+    });
 }
 
 function initializeRestaurants(){
@@ -111,10 +117,19 @@ function setMarker(place){
     INFOS.push(infoWindow);
 
     google.maps.event.addListener(marker, 'click', function () {
+        if(INFO_OPEN){
+            INFO_OPEN.close(MAP, MARKER_OPEN);
+            INFO_OPEN = false;
+            MARKER_OPEN = null;
+        }
         infoWindow.open(MAP, marker);
+        INFO_OPEN = infoWindow;
+        MARKER_OPEN = marker;
     });
     google.maps.event.addListener(MAP, 'click', function(){
         infoWindow.close(MAP, marker);
+        INFO_OPEN = false;
+        MARKER_OPEN = null;
     });
 }
 

@@ -86,6 +86,7 @@ $(document).ready(function(){
             }
             currSmall = true;
         }
+        MAP.setCenter(CENTER);
     });
     
     $("#about").click(function(){
